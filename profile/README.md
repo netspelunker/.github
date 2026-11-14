@@ -1,10 +1,10 @@
-# Network Spelunker
+# Netspelunker
 
 Reproducible infrastructure and homelab engineering focused on declarative operations, recoverability, failure isolation, and repeatable environments.
 
-## What Network Spelunker Is
+## What Netspelunker Is
 
-Network Spelunker is a hands-on infrastructure engineering ecosystem for designing and operating a small production-oriented homelab without confusing logical separation with physical high availability.
+Netspelunker is a hands-on infrastructure engineering ecosystem for designing and operating a small production-oriented homelab without confusing logical separation with physical high availability.
 
 The project treats infrastructure as a reproducible system: durable desired state is versioned, platform changes are reviewed, recovery responsibilities are separated from workloads, and runtime readiness requires evidence rather than configuration alone.
 
@@ -12,7 +12,7 @@ The project treats infrastructure as a reproducible system: durable desired stat
 
 A homelab can become difficult to recover when configuration exists only on individual machines, management depends on the same platform being managed, backups share the same failure domain, or operational knowledge survives only as one-off manual procedures.
 
-Network Spelunker addresses those problems by making infrastructure state, responsibilities, recovery assumptions, and validation boundaries explicit and repeatable.
+Netspelunker addresses those problems by making infrastructure state, responsibilities, recovery assumptions, and validation boundaries explicit and repeatable.
 
 ## The Approach
 
@@ -85,7 +85,7 @@ Architecture and operating contracts remain in durable documentation. Temporary 
 
 ## Technologies & Engineering Areas
 
-Network Spelunker demonstrates work across areas including:
+Netspelunker demonstrates work across areas including:
 
 - Kubernetes and container orchestration;
 - Talos Linux;
@@ -100,13 +100,17 @@ Network Spelunker demonstrates work across areas including:
 
 Technology names are included to communicate engineering breadth. Operational versions, exact routing, internal service combinations, private access mechanisms, and sensitive deployment details are intentionally omitted from the public product surface.
 
-## Projects
+## Engineering Focus Areas
 
-Network Spelunker is organized around focused infrastructure responsibilities, including:
+Netspelunker explores a modular infrastructure ecosystem organized around:
 
-- a declarative Kubernetes platform;
-- an independent management and recovery environment;
-- a reproducible remote development environment;
-- shared engineering governance and validation conventions.
+- **Network and access foundations:** segmented private connectivity and controlled administration.
+- **Container and platform orchestration:** declarative Kubernetes infrastructure and GitOps.
+- **Personal and business workloads:** independently managed applications with distinct operational responsibilities.
+- **Operations and security:** centralized monitoring, recovery, policy validation and security analysis.
 
-The implementation repositories are intentionally private. This public organization profile explains the engineering problems, system responsibilities, and design philosophy without exposing their operational topology.
+These are independent responsibilities with separate implementation ownership rather than one large application repository. Representative workloads include private personal tools and business software. The associated implementation repositories are private, and individual systems are not represented as live or available until validated.
+
+## Project Maturity
+
+Architectural and engineering work is ongoing. Documented desired state, planned workflows and automated validation are not evidence of production readiness or completed recovery tests. The public profile describes goals and engineering areas rather than exposing private implementation or operational entrypoints.
