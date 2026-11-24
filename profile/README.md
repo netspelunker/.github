@@ -1,112 +1,72 @@
-# Network Spelunker
+# Netspelunker
 
-Reproducible infrastructure and homelab engineering focused on declarative operations, recoverability, failure isolation, and repeatable environments.
+**Design · Deploy · Operate · Recover**
 
-## What Network Spelunker Is
+Netspelunker is an infrastructure and platform engineering initiative focused on designing, operating and maintaining reproducible computing environments.
 
-Network Spelunker is a hands-on infrastructure engineering ecosystem for designing and operating a small production-oriented homelab without confusing logical separation with physical high availability.
+Our work explores self-hosted infrastructure, networking, virtualization, container orchestration and operational automation through documented and repeatable engineering practices.
 
-The project treats infrastructure as a reproducible system: durable desired state is versioned, platform changes are reviewed, recovery responsibilities are separated from workloads, and runtime readiness requires evidence rather than configuration alone.
+## Purpose & Motivation
 
-## The Problem
+Netspelunker exists to explore how computing infrastructure can become more understandable, reliable, maintainable and recoverable.
 
-A homelab can become difficult to recover when configuration exists only on individual machines, management depends on the same platform being managed, backups share the same failure domain, or operational knowledge survives only as one-off manual procedures.
+Infrastructure should not depend on undocumented manual configurations, individual machines or knowledge that exists only with its original operator.
 
-Network Spelunker addresses those problems by making infrastructure state, responsibilities, recovery assumptions, and validation boundaries explicit and repeatable.
+The objective is to develop environments whose intended state, operational responsibilities and recovery procedures are explicitly defined and reproducible.
 
-## The Approach
+## Areas of Focus
 
-The ecosystem separates management, infrastructure, applications, development, and recovery responsibilities so that each can evolve without becoming the only way to restore the others.
+- **Infrastructure Engineering:** Design and management of computing environments.
+- **Networking:** Network architecture, segmentation, connectivity and controlled service exposure.
+- **Platform Engineering:** Shared capabilities for hosting and operating applications.
+- **Virtualization & Orchestration:** Management of virtual machines, containers and distributed workloads.
+- **Infrastructure Automation:** Declarative configuration, provisioning and configuration reconciliation.
+- **Development Environments:** Reproducible environments for software development and technical experimentation.
+- **Operational Resilience:** Backup, recovery, observability and failure-domain management.
 
-Declarative configuration and GitOps are used where they improve reproducibility, while runtime validation remains separate from source-level validation.
+## Key Initiative Examples
 
-## Core Capabilities
+The following initiatives illustrate selected applications of our work:
 
-- Declarative infrastructure and desired-state management.
-- GitOps-driven reconciliation for container orchestration.
-- Independent management and recovery responsibilities.
-- Failure-domain-aware storage and backup planning.
-- Reproducible development and administration environments.
-- Repository-local validation paired with runtime readiness checks.
-- Recovery-oriented documentation and explicit operational boundaries.
+- **Computing Infrastructure:** Reproducible environments for hosting applications and technical services.
+- **Container Platforms:** Declaratively managed container orchestration environments.
+- **Network Infrastructure:** Controlled connectivity, network boundaries and service access.
+- **Development Platforms:** Consistent environments for development, testing and experimentation.
+- **Infrastructure Automation:** Version-controlled configuration and repeatable provisioning.
+- **Operations & Recovery:** Independent management, backup, monitoring and recovery capabilities.
 
-## Example Use Cases
+## Approach
 
-- Rebuild infrastructure from reviewed configuration after a host or platform failure.
-- Reconcile platform services from version-controlled desired state.
-- Administer degraded infrastructure through an independent management layer.
-- Separate development tooling from production recovery responsibilities.
-- Validate backups and recovery procedures without treating a successful backup job as proof of recoverability.
-- Evolve a homelab using documentation, review, automation, and failure-domain disciplines commonly applied to production infrastructure.
+Infrastructure is treated as an engineered system rather than a collection of independently configured machines.
 
-## High-Level Architecture
+Durable configurations are maintained through version control, responsibilities are explicitly separated and changes are evaluated against operational requirements.
 
-```mermaid
-flowchart TB
-    Operator["Operator"]
-    Management["Independent Management Layer"]
-    Infrastructure["Compute & Infrastructure Platform"]
-    Applications["Platform Services & Applications"]
-    Development["Development Environment"]
-    Recovery["Backup & Recovery"]
-    DesiredState["Versioned Desired State"]
-
-    Operator --> Management
-    Management --> Infrastructure
-    Management --> Development
-    DesiredState --> Infrastructure
-    Infrastructure --> Applications
-    Infrastructure --> Recovery
-```
-
-This is a **Conceptual Architecture**. It communicates engineering responsibilities without exposing the internal deployment topology, exact access paths, recovery entrypoints, node layout, service routing, or other operational details.
+Configuration validation is distinguished from runtime verification, and recovery assumptions are evaluated against actual infrastructure dependencies.
 
 ## Engineering Principles
 
-### Recovery must not depend on the workload platform
+- **Reproducibility:** Infrastructure should be reconstructable from documented and version-controlled configuration.
+- **Explicit Boundaries:** Management, networking, workloads and recovery responsibilities should remain distinguishable.
+- **Failure Isolation:** Understand and manage the consequences of infrastructure failures.
+- **Recoverability:** Design recovery capabilities alongside operational environments.
+- **Evidence-Based Validation:** Distinguish intended configuration from verified runtime behavior.
+- **Operational Clarity:** Preserve the knowledge required to understand, maintain and operate infrastructure.
 
-Management and recovery responsibilities are separated from the systems they are expected to repair so a platform outage does not automatically remove the primary recovery path.
+## Technologies & Disciplines
 
-### Desired state should be reconstructable
+- Linux systems administration.
+- Virtualization and container orchestration.
+- Kubernetes and Talos Linux.
+- Infrastructure as Code and GitOps.
+- Networking and network security.
+- CI/CD and operational automation.
+- Persistent storage, backup and recovery.
+- Observability and failure-domain analysis.
 
-Durable infrastructure configuration belongs in version control and should be capable of rebuilding the intended state without relying on undocumented manual changes.
+## Repository Availability
 
-### Failure domains must be explicit
+Our initiatives span infrastructure research, experimentation and production-oriented engineering.
 
-Logical isolation is not presented as physical redundancy. Storage, backup, and recovery decisions are evaluated against the failure domains that actually exist.
+Public documentation communicates selected engineering concepts, architectural principles and operational approaches.
 
-### Validation and runtime evidence are different
-
-Passing repository checks proves that source-level expectations are satisfied. It does not prove that physical hosts, networks, orchestration, storage, backups, or restores are operational.
-
-### Durable knowledge and execution state are separate
-
-Architecture and operating contracts remain in durable documentation. Temporary blockers, assignments, migrations, and implementation checkpoints belong in project tracking rather than permanent architecture documents.
-
-## Technologies & Engineering Areas
-
-Network Spelunker demonstrates work across areas including:
-
-- Kubernetes and container orchestration;
-- Talos Linux;
-- GitOps and Flux;
-- infrastructure as code and declarative configuration;
-- virtualization and platform engineering;
-- networking and service exposure;
-- persistent storage and backup design;
-- CI/CD and automated validation;
-- Linux systems administration;
-- recovery planning and failure-domain analysis.
-
-Technology names are included to communicate engineering breadth. Operational versions, exact routing, internal service combinations, private access mechanisms, and sensitive deployment details are intentionally omitted from the public product surface.
-
-## Projects
-
-Network Spelunker is organized around focused infrastructure responsibilities, including:
-
-- a declarative Kubernetes platform;
-- an independent management and recovery environment;
-- a reproducible remote development environment;
-- shared engineering governance and validation conventions.
-
-The implementation repositories are intentionally private. This public organization profile explains the engineering problems, system responsibilities, and design philosophy without exposing their operational topology.
+Internal network topology, access mechanisms, deployment configurations and sensitive operational information remain private.
